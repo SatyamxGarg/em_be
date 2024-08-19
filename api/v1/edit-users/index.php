@@ -33,7 +33,7 @@ try {
         die();
     }
 
-        $user_first_name=$data['fuser_first_name'];
+        $user_first_name=$data['user_first_name'];
         $user_last_name=$data['user_last_name'];
         // $user_email=$data['emailAddress'];
         // $email=$userData->email;       // from token.
