@@ -40,7 +40,7 @@ try {
     $row=mysqli_fetch_array($result);
     $db_password=$row['user_password'];
     if($db_password!=$current_password){
-        http_response_code(401);
+        http_response_code(400);
         $server_response_error = array(
             "status" => false,
             "message" => "Current password doesn't match.",
@@ -52,7 +52,7 @@ try {
 
     $pattern = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>])[A-Za-z\d!@#$%^&*()\-_=+{};:,<.>.]{8,}$/';
     if (!preg_match($pattern, $new_password)) {
-        http_response_code(401);
+        http_response_code(400);
         $server_response_error = array(
             "status" => false,
             "message" => "New password is invalid",
