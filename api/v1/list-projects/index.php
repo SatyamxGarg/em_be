@@ -1,4 +1,3 @@
-
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -11,9 +10,11 @@ include '../../../connect.php';
 try { 
     header('Content-type: application/json');
     include '../../../checkMethod.php';
-    checkMethod("GET");
+    checkMethod("POST");
 
-    $sql = "SELECT * FROM em_users WHERE user_isDeleted != 1";
+    $id=$userData->id;
+
+    $sql = "SELECT * FROM em_projects where project_user_id=$id";
     $result = mysqli_query($con, $sql);
 
     $users = [];
@@ -26,7 +27,7 @@ try {
     if (!empty($users)) {
         $data = [
             "status" => true,
-            "message" => "Users found",
+            "message" => "List found",
             "data" => [$users]
         ];
         http_response_code(200);
@@ -34,7 +35,7 @@ try {
     } else {
         $data = [
             "status" => false,
-            "message" => "No users found",
+            "message" => "No List found",
             "data" => []
         ];
         http_response_code(404);

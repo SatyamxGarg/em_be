@@ -72,7 +72,7 @@ try {
     
     $data = [
         'userName' => $row['user_first_name'],
-        "exp" => time() + 60 * 7,
+        "exp" => time() + 60 * 24,
         "id" => $row['user_id'],
     ];
     
