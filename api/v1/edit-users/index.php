@@ -35,45 +35,14 @@ try {
 
         $user_first_name=$data['user_first_name'];
         $user_last_name=$data['user_last_name'];
-        // $user_email=$data['emailAddress'];
-        // $email=$userData->email;       // from token.
-        // if ($email!=$user_email) {
-        //     if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
-        //         http_response_code(400);
-        //         $server_response_error = array(
-        //             "status" => false,
-        //             "message" => "E-mail is invalid.",
-        //             "data" => []
-        //         );
-        //         echo json_encode($server_response_error);
-        //         die();
-        //       } else {
-        //       $sql_check_email = "SELECT * FROM `em_users` WHERE user_email='$user_email'";
-        //       $result_check_email = $con->query($sql_check_email);
-      
-        //       if ($result_check_email->num_rows > 0) {
-        //         http_response_code(400);
-        //         $server_response_error = array(
-        //             "status" => false,
-        //             "message" => "E-mail is already registered.",
-        //             "data" => []
-        //         );
-        //         echo json_encode($server_response_error);
-        //         die();
-        //       }
-
-        //     }
-        //   }
+  
           $user_age=$data['user_age'];
           $user_gender=$data['user_gender'];
           $user_phone=$data['user_phone'];
           $user_country=$data['user_country'];
           $user_state=$data['user_state'];
           $user_city=$data['user_city'];
-        // $user_password=md5($data['user_password']);
-
-    // $jwt_token=checkAuthorization();
-    // $id=$jwt_token->{'id'};
+      
     $id=$userData->id;
     $sql="update em_users set user_first_name = '$user_first_name' , user_last_name = '$user_last_name' , user_age='$user_age' , user_gender='$user_gender' ,user_phone='$user_phone' ,user_country='$user_country' ,user_state='$user_state', user_city='$user_city' where user_id=$id";
     $result=mysqli_query($con,$sql);

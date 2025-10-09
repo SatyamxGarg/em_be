@@ -13,7 +13,7 @@ try {
   
     header('Content-type: application/json');
     include '../../../checkMethod.php';
-    checkMethod("GET");
+    checkMethod(method: "GET");
 
 
     // $inputData = file_get_contents('php://input');
